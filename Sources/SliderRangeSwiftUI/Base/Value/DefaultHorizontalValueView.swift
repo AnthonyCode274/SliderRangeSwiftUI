@@ -4,7 +4,7 @@ import SwiftUI
 public struct DefaultHorizontalValueView: View {
     public var body: some View {
         Capsule()
-            .foregroundColor(.accentColor)
+            .foregroundColor(.red)
             .frame(height: 3)
     }
 }

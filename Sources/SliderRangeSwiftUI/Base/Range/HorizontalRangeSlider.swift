@@ -1,9 +1,7 @@
 import SwiftUI
 
-@available(iOS 13.0, *)
 public typealias HRangeSlider = HorizontalRangeSlider
 
-@available(iOS 13.0, *)
 public struct HorizontalRangeSlider<V, TrackView: View, LowerThumbView: View, UpperThumbView: View> : View where V : BinaryFloatingPoint, V.Stride : BinaryFloatingPoint {
     let range: Binding<ClosedRange<V>>
     let bounds: ClosedRange<CGFloat>
@@ -139,7 +137,6 @@ public struct HorizontalRangeSlider<V, TrackView: View, LowerThumbView: View, Up
 }
 
 // MARK: Inits
-@available(iOS 13.0, *)
 extension HorizontalRangeSlider {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0...1, step: V.Stride = 0.001, track: TrackView, lowerThumb: LowerThumbView, upperThumb: UpperThumbView, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         self.range = range
@@ -155,20 +152,19 @@ extension HorizontalRangeSlider {
         self.onEditingChanged = onEditingChanged
     }
 }
-@available(iOS 13.0, *)
 extension HorizontalRangeSlider where TrackView == DefaultHorizontalRangeTrack<V> {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0.0...1.0, step: V.Stride = 0.001, lowerThumb: LowerThumbView, upperThumb: UpperThumbView, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         let track = DefaultHorizontalRangeTrack(range: range.wrappedValue, in: bounds, configuration: configuration.horizontalTrackConfiguration)
         self.init(range: range, in: bounds, step: step, track: track, lowerThumb: lowerThumb, upperThumb: upperThumb, configuration: configuration, onEditingChanged: onEditingChanged)
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeSlider where LowerThumbView == DefaultThumb, UpperThumbView == DefaultThumb {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0.0...1.0, step: V.Stride = 0.001, track: TrackView, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         self.init(range: range, in: bounds, step: step, track: track, lowerThumb: DefaultThumb(), upperThumb: DefaultThumb(), configuration: configuration, onEditingChanged: onEditingChanged)
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeSlider where TrackView == DefaultHorizontalRangeTrack<V>, LowerThumbView == DefaultThumb, UpperThumbView == DefaultThumb {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0.0...1.0, step: V.Stride = 0.001, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         let track = DefaultHorizontalRangeTrack(range: range.wrappedValue, in: bounds, configuration: configuration.horizontalTrackConfiguration)
@@ -177,13 +173,13 @@ extension HorizontalRangeSlider where TrackView == DefaultHorizontalRangeTrack<V
 }
 
 // MARK: Inits for same LowerThumbView and UpperThumbView
-@available(iOS 13.0, *)
+
 extension HorizontalRangeSlider where LowerThumbView == UpperThumbView {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0.0...1.0, step: V.Stride = 0.001, track: TrackView, thumb: LowerThumbView, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         self.init(range: range, in: bounds, step: step, track: track, lowerThumb: thumb, upperThumb: thumb, configuration: configuration, onEditingChanged: onEditingChanged)
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeSlider where TrackView == DefaultHorizontalRangeTrack<V>, LowerThumbView == UpperThumbView {
     public init(range: Binding<ClosedRange<V>>, in bounds: ClosedRange<V> = 0.0...1.0, step: V.Stride = 0.001, thumb: LowerThumbView, configuration: RangeSliderConfiguration = .defaultConfiguration, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         let track = DefaultHorizontalRangeTrack(range: range.wrappedValue, in: bounds, configuration: configuration.horizontalTrackConfiguration)

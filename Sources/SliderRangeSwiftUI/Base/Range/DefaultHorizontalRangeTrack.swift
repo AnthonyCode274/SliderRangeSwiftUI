@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13.0.0, *)
 public struct DefaultHorizontalRangeTrack<V>: View where V : BinaryFloatingPoint, V.Stride : BinaryFloatingPoint {
     let range: ClosedRange<V>
     let bounds: ClosedRange<V>
@@ -21,7 +20,6 @@ public struct DefaultHorizontalRangeTrack<V>: View where V : BinaryFloatingPoint
 }
 
 #if DEBUG
-@available(iOS 13.0.0, *)
 struct DefaultHorizontalRangeTrack_Previews: PreviewProvider {
     static var previews: some View {
         DefaultHorizontalRangeTrack(range: 0.5...0.9)

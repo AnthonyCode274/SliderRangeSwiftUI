@@ -1,9 +1,7 @@
 import SwiftUI
 
-@available(iOS 13.0, *)
 public typealias RangeTrackConfig = RangeTrackConfiguration
 
-@available(iOS 13.0, *)
 public struct RangeTrackConfiguration {
     public static let defaultConfiguration = RangeTrackConfiguration()
     
@@ -20,7 +18,6 @@ public struct RangeTrackConfiguration {
     }
 }
 
-@available(iOS 13.0, *)
 public extension RangeTrackConfiguration {
     init(lowerOffset: CGFloat = 0, upperOffset: CGFloat = 0) {
         self.lowerLeadingOffset = lowerOffset / 2
@@ -30,7 +27,6 @@ public extension RangeTrackConfiguration {
     }
 }
 
-@available(iOS 13.0, *)
 public extension RangeTrackConfiguration {
     init(offsets: CGFloat = 0) {
         self.lowerLeadingOffset = offsets / 2

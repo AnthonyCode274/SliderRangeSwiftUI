@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct RangeSliderConfiguration {
     public static let defaultConfiguration = RangeSliderConfiguration()
 
@@ -21,7 +20,6 @@ public struct RangeSliderConfiguration {
     }
 }
 
-@available(iOS 13.0, *)
 public extension RangeSliderConfiguration {
     struct Options: OptionSet {
         public let rawValue: Int
@@ -35,7 +33,6 @@ public extension RangeSliderConfiguration {
     }
 }
 
-@available(iOS 13.0, *)
 public extension RangeSliderConfiguration {
     init(options: Options = .defaultOptions, thumbSize: CGSize = .defaultThumbSize, thumbInteractiveSize: CGSize = .defaultThumbInteractiveSize) {
         self.options = options
@@ -46,13 +43,11 @@ public extension RangeSliderConfiguration {
     }
 }
 
-@available(iOS 13.0, *)
 extension RangeSliderConfiguration {
     static let defaultThumbSize: CGSize = CGSize(width: 27, height: 27)
     static let defaultThumbInteractiveSize : CGSize = CGSize(width: 44, height: 44)
 }
 
-@available(iOS 13.0, *)
 extension RangeSliderConfiguration {
     var horizontalTrackConfiguration: RangeTrackConfiguration {
         RangeTrackConfiguration(

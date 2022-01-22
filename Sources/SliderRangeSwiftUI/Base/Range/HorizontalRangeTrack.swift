@@ -1,9 +1,7 @@
 import SwiftUI
 
-@available(iOS 13.0.0, *)
 public typealias HRangeTrack = HorizontalRangeTrack
 
-@available(iOS 13.0, *)
 public struct HorizontalRangeTrack<V, ValueView: View, MaskView: View>: View where V : BinaryFloatingPoint, V.Stride : BinaryFloatingPoint  {
     let range: ClosedRange<CGFloat>
     let bounds: ClosedRange<CGFloat>
@@ -43,7 +41,7 @@ public struct HorizontalRangeTrack<V, ValueView: View, MaskView: View>: View whe
         }
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeTrack {
     public init(range: ClosedRange<V>, in bounds: ClosedRange<V> = 0.0...1.0, view: ValueView, mask: MaskView, configuration: RangeTrackConfiguration = .defaultConfiguration) {
         self.range = CGFloat(range.lowerBound)...CGFloat(range.upperBound)
@@ -53,19 +51,19 @@ extension HorizontalRangeTrack {
         self.configuration = configuration
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeTrack where ValueView == DefaultHorizontalValueView {
     public init(range: ClosedRange<V>, in bounds: ClosedRange<V> = 0.0...1.0, mask: MaskView, configuration: RangeTrackConfiguration = .defaultConfiguration) {
         self.init(range: range, in: bounds, view: DefaultHorizontalValueView(), mask: mask, configuration: configuration)
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeTrack where MaskView == Capsule {
     public init(range: ClosedRange<V>, in bounds: ClosedRange<V> = 0.0...1.0, view: ValueView, configuration: RangeTrackConfiguration = .defaultConfiguration) {
         self.init(range: range, in: bounds, view: view, mask: Capsule(), configuration: configuration)
     }
 }
-@available(iOS 13.0, *)
+
 extension HorizontalRangeTrack where ValueView == DefaultHorizontalValueView, MaskView == Capsule {
     public init(range: ClosedRange<V>, in bounds: ClosedRange<V> = 0.0...1.0, configuration: RangeTrackConfiguration = .defaultConfiguration) {
         self.init(range: range, in: bounds, view: DefaultHorizontalValueView(), mask: Capsule(), configuration: configuration)
